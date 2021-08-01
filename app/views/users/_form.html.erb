@@ -1,0 +1,29 @@
+<h1 class="title">Sign in</h1>
+
+<section class="wrapper skinny-wrapper">
+
+   
+    <div class = "log_in_box">
+        <%= form_for @user do |f| %>
+            <div class = "form">
+                <%= f.label :username %><br>
+                <%= f.text_field :username, placeholder: "Username:" %>
+            </div>
+
+            <div class = "form">
+                <%= f.label :email %><br>
+                <%= f.text_field :email, placeholder: "Email:" %>
+            </div>
+
+            <div class = "form">
+                <%= f.label :password %><br>
+                <%= f.password_field :password, placeholder: "Password:" %>
+            </div>
+
+            <%= f.submit btn, class: "Btn" %><br><br>
+            or <%= link_to "Back", root_path, class: "back__btn" %>
+         <% end %>
+    </div>
+   
+
+</section>

@@ -1,0 +1,29 @@
+<h1 class="title">Log in or Sign in</h1>
+
+<section class="wrapper skinny-wrapper">
+    <div class = "log_in_box">
+    
+            <%= form_with(scope: :session, url: login_path) do |f| %>
+
+            <div class = "form">
+                <%= f.label :email %><br>
+                <%= f.text_field :email, placeholder: "Email:" %>
+            </div>
+
+            <div class = "form">
+                <%= f.label :password %><br>
+                <%= f.password_field :password, placeholder: "Password:" %>
+            </div>
+
+            <div class="form-group">
+                <%= f.submit "Log In", class: "Btn" %>
+                <br><br><button type="button" class="Btn"><%= link_to "Log In with Google", '/auth/google_oauth2' %></button>
+            </div>
+            <% end %>        
+    </div>
+    <div class = "sign_up_box">
+
+            <%= link_to "Sign up", signup_path, class: "button_signup" %> 
+
+    </div>
+</section>
