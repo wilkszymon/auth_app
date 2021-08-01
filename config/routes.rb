@@ -3,6 +3,7 @@ Rails.application.routes.draw do
   root 'sessions#new'
 
   resources :users
+  resources :posts
 
   get 'signup', to: 'users#new'
 
@@ -11,5 +12,7 @@ Rails.application.routes.draw do
   delete 'logout', to: 'sessions#destroy'
 
 
-  get '/auth/:provider/callback', to: 'sessions#omniauth'
+  get '/auth/google_oath2/callback', to: 'sessions#omniauth'
+
+  # get '*path' => redirect('/')
 end

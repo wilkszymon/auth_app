@@ -9,7 +9,7 @@ class UsersController < ApplicationController
         if @user.save
             flash[:notice] = "Welceome #{@user.username}"
         else
-            render 'new'
+            redirect_to root_path
         end
     end
 

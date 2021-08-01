@@ -19,10 +19,11 @@ class SessionsController < ApplicationController
   end
 
   def omniauth
-    @user = User.from_omniauth(auth)
-    @user.save
-    session[:user_id] = @user.id
-    redirect_to root_path
+    binding.pry
+    # @user = User.from_omniauth(request.env['omniauth.auth'])
+    # @user.save
+    # session[:user_id] = @user.id
+    # redirect_to root_path
   end
 
 
