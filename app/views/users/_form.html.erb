@@ -1,8 +1,9 @@
 <h1 class="title">Sign in</h1>
 
+ <%= render partial: 'shared/errors', locals: {obj: @user} %> 
+
 <section class="wrapper skinny-wrapper">
 
-   
     <div class = "log_in_box">
         <%= form_for @user do |f| %>
             <div class = "form">
@@ -20,8 +21,18 @@
                 <%= f.password_field :password, placeholder: "Password:" %>
             </div>
 
-            <%= f.submit btn, class: "Btn" %><br><br>
-            or <%= link_to "Back", root_path, class: "back__btn" %>
+            <div class="form-group">
+            
+                <%= f.submit btn, class: "Btn" %><br><br>
+                <div class = "google__box">
+                    <i class="fab fa-google"></i>
+                    <%= link_to "Sign Up In with Google", '/auth/google_oauth2', class: "google__btn" %>
+                </div>
+                 or <%= link_to "Back", root_path, class: "back__btn" %>
+                
+            </div>
+            
+           
          <% end %>
     </div>
    

@@ -1,5 +1,11 @@
 <h1 class="title">Log in or Sign in</h1>
 
+<% flash.each do |type, msg| %>
+  <div>
+    <%= msg %>
+  </div>
+<% end %>
+
 <section class="wrapper skinny-wrapper">
     <div class = "log_in_box">
     
@@ -17,13 +23,22 @@
 
             <div class="form-group">
                 <%= f.submit "Log In", class: "Btn" %>
-                <br><br><button type="button" class="Btn"><%= link_to "Log In with Google", '/auth/google_oauth2' %></button>
+                <div class = "google__box">
+                    <i class="fab fa-google"></i>
+                    <%= link_to "Log In with Google", '/auth/google_oauth2', class: "google__btn" %>
+                </div>
+                
             </div>
             <% end %>        
     </div>
     <div class = "sign_up_box">
 
             <%= link_to "Sign up", signup_path, class: "button_signup" %> 
+            
 
     </div>
 </section>
+
+
+
+

@@ -1,0 +1,7 @@
+<%= render partial: "shared/nav" %>
+
+<%= render partial: "shared/form_posts", locals: {object: @post, title: "Update a post", btn: "Update"} %>
+
+<%= link_to "Back to posts", posts_path, class: "toPost" %>
+
+

@@ -1,0 +1,9 @@
+<nav class="navigation">
+    <div class="logo">
+        <h4>Zadanie</h4>
+    </div>
+    <ul class="nav">
+        <li><%= link_to "Account - #{current_user.email} ", "", class: "elem" %></li>
+        <li><%= link_to "Log out", logout_path, method: :delete, class: "elem" %></li>
+    </ul>
+</nav>

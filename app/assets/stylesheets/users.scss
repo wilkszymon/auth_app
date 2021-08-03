@@ -9,3 +9,30 @@
     color: black;
     text-decoration: none;
 }
+
+.google__box{
+    margin: 20px;
+    padding: 10px 20px;
+    border: 1px solid black;
+    cursor: pointer;
+    background-color: #FBBC05;
+    .fa-google{
+        font-size: 20px;
+        margin-right: 10px;
+    }
+    .google__btn{
+        font-size: 20px;
+        color: black;
+        text-decoration: none;
+    }
+}
+
+.errors__box{
+    text-align: center;
+    ul{
+        text-decoration: none;
+        li{
+            padding: 10px 20px;
+        }
+    }
+}

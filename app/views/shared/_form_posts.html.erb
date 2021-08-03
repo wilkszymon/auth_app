@@ -1,0 +1,24 @@
+<section class="title">
+     <h2> <%= title %></h2>
+   </section>
+
+<%= render partial: 'shared/errors', locals: {obj: object} %>
+
+<section class="wrapper skinny-wrapper">
+
+    <%= form_for object do |f| %>
+    
+    <div class = "form">
+        <%= f.label :city %><br>
+        <%= f.text_field :city, placeholder: "City:" %>
+    </div>
+    
+    <div class = "form">
+        <%= f.label :description %><br>
+        <%= f.text_area :description, :cols => 30, :rows => 10,  placeholder: "Description:" %>
+    </div>
+    <div class = "form__btn">    
+         <%= f.submit btn, class: "Btn" %>
+    </div>
+    <% end %>
+</section>

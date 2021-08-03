@@ -1,1 +1,37 @@
-<h1>siema</h1>
+<%= render partial: "shared/nav" %>
+<%= render partial: "shared/form_posts", locals: {object: @post, title: "Form", btn: "Save"} %>
+
+<h2 class= "posts__h2" >Older posts</h2>
+<table class="content-table">
+    <thead>
+
+        <tr>
+            <th></th>
+            <th>Weather</th>
+            <th>City</th>
+            <th>Description</th>
+            <th colspan =2>Options</th>
+        </tr>
+
+    </thead>
+
+    <tbody>
+
+            <% @posts.each do |post| %>
+
+                <tr>
+                    <td> <%= post.created_at.strftime("%d-%m-%Y") %> </td>
+                    <td> <%= post.weather ? "#{post.weather}℃" : "--"%> </td>
+                    <td> <%= post.city %> </td>
+                    <td> <%= post.description %> </td>
+                    <td><%= link_to "Delete", post_path(post), method: :delete %></td>
+                    <td><%= link_to "Edit", edit_post_path(post.id) %></td>
+                </tr>
+
+            <%end%>
+
+    </tbody>
+</table>
+
+
+<%= @final %>

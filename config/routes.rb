@@ -12,7 +12,7 @@ Rails.application.routes.draw do
   delete 'logout', to: 'sessions#destroy'
 
 
-  get '/auth/google_oath2/callback', to: 'sessions#omniauth'
+  get '/auth/:provider/callback', to: 'sessions#omniauth'
 
   # get '*path' => redirect('/')
 end
