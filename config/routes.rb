@@ -14,5 +14,5 @@ Rails.application.routes.draw do
 
   get '/auth/:provider/callback', to: 'sessions#omniauth'
 
-  # get '*path' => redirect('/')
+  get '*path' => redirect('/')
 end
