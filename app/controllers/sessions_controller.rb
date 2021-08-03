@@ -23,20 +23,27 @@ class SessionsController < ApplicationController
 
   end
 
-  def omniauth
+  # def omniauth
 
-    user = User.find_or_create_by(uid: auth['uid']) do |u|
-      u.username = auth['info']['first_name']
-      u.email = auth['info']['email']
-      u.password = SecureRandom.hex(16)
-    end
-    if user.valid?
-      session[:user_id] = user.id
-      redirect_to posts_path
-    else
-      flash[:message] = user.errors.full_messages.join(", ")
-      redirect_to root_path
-    end
+  #   user = User.find_or_create_by(uid: auth['uid']) do |u|
+  #     u.username = auth['info']['first_name']
+  #     u.email = auth['info']['email']
+  #     u.password = SecureRandom.hex(16)
+  #   end
+  #   if user.valid?
+  #     session[:user_id] = user.id
+  #     redirect_to posts_path
+  #   else
+  #     flash[:message] = user.errors.full_messages.join(", ")
+  #     redirect_to root_path
+  #   end
+  # end
+
+  def omniauth
+    @user = User.from_omniauth(auth)
+    @user.save
+    session[:user_id] = @user.id
+    redirect_to posts_path
   end
 
 
