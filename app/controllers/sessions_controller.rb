@@ -10,7 +10,7 @@ class SessionsController < ApplicationController
       flash[:notice] = "You login"
       redirect_to posts_path
     else
-      flash[:error] = "Something wrong with login"
+      flash.now[:alert] = "Something wrong with login"
       render 'new'
     end
   end
@@ -25,9 +25,13 @@ class SessionsController < ApplicationController
 
   def omniauth
     @user = User.from_omniauth(auth)
-    @user.save
-    session[:user_id] = @user.id
-    redirect_to posts_path
+    if @user.save
+      session[:user_id] = @user.id
+      redirect_to posts_path
+    else
+      flash[:message] = user.errors.full_messages.join(", ")
+      redirect_to root_path
+    end
   end
 
 
