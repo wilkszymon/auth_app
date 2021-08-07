@@ -22,14 +22,21 @@ class PostsController < ApplicationController
   def create
     @post = Post.new(params_post)
     @post.user_id = current_user.id
-    @post.weather = Post.from_API(params[:post][:city])
-    
-    if @post.save
-      redirect_to posts_path
+    if params[:post][:city].present?
+      @post.weather = Post.from_API(params[:post][:city])
+      if @post.weather?
+        @post.save
+        redirect_to posts_path
+      else
+        flash[:message] = "Please enter a valid city to search"
+        redirect_to posts_path
+      end
     else
-      flash[:message] = @post.errors.full_messages.join(", ")
+      flash[:message] = "Please enter a city to search"
       redirect_to posts_path
     end
+    
+
   end
 
   def edit
