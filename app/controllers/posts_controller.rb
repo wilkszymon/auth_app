@@ -61,7 +61,7 @@ class PostsController < ApplicationController
     end
 
     def require_same_user
-      if @post.user != current_user
+      if @post.user_id != current_user.id
         flash[:notice] = "You can only edit or deleted your own post"
         redirect_to posts_path
       end
